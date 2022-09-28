@@ -1,5 +1,6 @@
 const { assertEquals } = require("../testing-framework");
 const Basket = require("../src/basket");
+const Item = require("../src/basket");
 
 let expected;
 let actual;
@@ -11,32 +12,33 @@ let item;
 
 console.log(`============================`);
 console.log(`Test 1 - add puts something into the basket`);
+console.log(`Test 2 - checkID of added item in basket`);
 
 // Arrange
 basket = new Basket();
-item = { id: `item1` };
-expected = 1;
+item = new Item("item1");
+expected = item;
 
 // Act
-basket.add(item);
-actual = basket.basketItems.length;
+basket.add("item1");
 
+actual = Basket.basketItems.find(basketItemsElement);
 // Assert
 result = assertEquals(actual, expected);
-console.log(`Test 1: Something added to basket: ${result}`);
+console.log(`Test 1: Item ID in basket: ${result}`);
 
 // Clean up
-basket = null;
-item = null;
-expected = undefined;
-actual = undefined;
-result = undefined;
+// basket = null;
+// item = null;
+// expected = undefined;
+// actual = undefined;
+// result = undefined;
 
 const basket1 = new Basket();
-const basket2 = new Basket();
+const item1 = new Item();
+// const basket2 = new Basket();
 
-// basket1.add({ id: `item 1 in basket 1`});
-// basket1.add({ id: `item 2 in basket 1`});
+// basket1.add({ id: `item 2 in basket 1` });
 
 // console.log(basket1.basketItems);
 
