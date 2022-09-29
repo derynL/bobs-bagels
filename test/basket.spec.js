@@ -1,6 +1,6 @@
-const { assertEquals } = require("../testing-framework");
-const Basket = require("../src/basket");
-const Item = require("../src/basket");
+const { assertEquals } = require('../testing-framework');
+const Basket = require('../src/basket');
+// const Item = require("../src/basket");
 
 let expected;
 let actual;
@@ -11,35 +11,45 @@ let item;
 // Test 1 - is anything added to the basket?
 
 console.log(`============================`);
-console.log(`Test 1 - add puts something into the basket`);
-console.log(`Test 2 - checkID of added item in basket`);
+console.log(`Test 1 - checkID of added item in basket`);
 
 // Arrange
 basket = new Basket();
-item = new Item("item1");
-expected = item;
+
+item = { id: `item1` };
+expected = true;
 
 // Act
-basket.add("item1");
-
-actual = Basket.basketItems.find(basketItemsElement);
+basket.add(item);
+actual = basket.basketItems.includes(item);
 // Assert
 result = assertEquals(actual, expected);
 console.log(`Test 1: Item ID in basket: ${result}`);
 
 // Clean up
-// basket = null;
-// item = null;
-// expected = undefined;
-// actual = undefined;
-// result = undefined;
+basket = null;
+item = null;
+expected = undefined;
+actual = undefined;
+result = undefined;
 
+// Test 2 - is it working in a new basket?
+
+console.log(`Test 2 - checkID of added item in new basket`);
+
+// Arrange
 const basket1 = new Basket();
-const item1 = new Item();
-// const basket2 = new Basket();
 
-// basket1.add({ id: `item 2 in basket 1` });
+item = { id: `item2` };
+expected = true;
 
-// console.log(basket1.basketItems);
+// Act
+basket1.add(item);
+actual = basket1.basketItems.includes(item);
+// Assert
+result = assertEquals(actual, expected);
+console.log(`Test 2: Item ID in basket: ${result}`);
+
+console.log(basket1.basketItems);
 
 // basket2.add({ id: `item 1 in basket 2`});
