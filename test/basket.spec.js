@@ -34,7 +34,7 @@ actual = undefined;
 result = undefined;
 
 // Test 2 - is it working in a new basket?
-
+console.log(`============================`);
 console.log(`Test 2 - checkID of added item in new basket`);
 
 // Arrange
@@ -52,4 +52,32 @@ console.log(`Test 2: Item ID in basket: ${result}`);
 
 console.log(basket1.basketItems);
 
-// basket2.add({ id: `item 1 in basket 2`});
+
+// Clean up
+basket = null;
+item = null;
+expected = undefined;
+actual = undefined;
+result = undefined;
+
+// Test 3 - was removed from the basket?
+console.log(`============================`);
+console.log(`Test 3 - confirm item removed`);
+
+// Arrange
+basket = new Basket();
+
+item = { id: `item3` };
+expected = 0;
+
+// Act
+basket.add(item);
+basket.removeItem(item);
+actual = basket.basketItems.length;
+
+// Assert
+result = assertEquals(actual, expected);
+console.log(`Test 3: removed item from basket: ${result}`);
+console.log(basket.basketItems);
+
+
