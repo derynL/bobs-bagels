@@ -1,0 +1,28 @@
+{
+  "name": "bobs-bagels",
+  "version": "1.0.0",
+  "description": "bobs-bagels challenge",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "jasmine"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/derynL/bobs-bagels.git"
+  },
+  "keywords": [
+    "ck"
+  ],
+  "author": "ck",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/derynL/bobs-bagels/issues"
+  },
+  "homepage": "https://github.com/derynL/bobs-bagels#readme",
+  "devDependencies": {
+    "jasmine": "^4.4.0"
+  }
+}
